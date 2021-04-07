@@ -1,0 +1,145 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body
+{
+    position: relative;
+    /* background-color: #ffff90 !important; */
+    background: linear-gradient(-45deg, rgb(228, 52, 52),rgb(233, 97, 97),rgb(230, 74, 35)) ;
+    scroll-behavior: smooth;
+}
+.App
+{
+    position: relative;
+}
+div.App > nav.navbar
+{
+    background-color: #283642 !important;
+}
+.right-0
+{
+    right: 0 !important;
+}
+i.bi-x
+{
+    font-size: 35px;
+    color: red!important;
+}
+.bi-x-circle-fill
+{
+    font-size: 30px;
+    color: rgb(241, 11, 11);
+}
+.bi-plus-circle
+{
+    width: 30px!important;
+    height: 30px!important;
+    font-size: 30px;
+    color: whitesmoke;
+}
+#add-form
+{
+    display: none;
+    /* position: absolute;
+    z-index: 1;
+    width: 90%; */
+    transition: ease-in-out 5s;
+}
+.bg-color
+{
+    background-color: #fafabd;
+}
+button.show-form
+{
+    background-color: transparent;
+    outline: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+}
+button.clearTasks
+{
+    border: none;
+    color: red;
+    background-color: transparent;
+    font-weight: 600;
+    margin-left: 10px;
+}
+button.show-form:focus
+{
+    outline: none !important;
+    border: none !important;
+}
+form > button, form > button:hover, form > button:focus, form > button:active
+{
+    outline:none !important;
+    border: none !important;
+}
+div.Todos > h2
+{
+    text-align: center;
+    width: 70%;
+    margin: 20px auto;
+}
+div.Todo
+{
+    position: relative;
+    background-color: #f5f58c !important;
+    animation: slowShow 1s ease-in-out;
+}
+@keyframes slowShow
+{
+    0% {
+        opacity: 0;
+    } 25% {
+        opacity: .6;
+    } 75% {
+        opacity: .9;
+    } 90%{
+        opacity: 1;
+    }
+}
+
+div.Todo div.card-header
+{
+    min-height: 50px !important;
+    height: 10vh;
+    /* background-color: #f06392a8 !important; */
+}
+div.Todo > button.deleteBtn
+{
+    background-color: #283642 !important;
+}
+div.Todo > button.deleteBtn:focus
+{
+    opacity: .6 ;
+    box-shadow: inset 2px 2px 2px #111;
+}
+/* ................................................................ */
+/* Media Quary */
+@media (min-width:568px)
+{
+    .App
+    {
+        max-width: 600px !important;
+        width:75% !important;
+    }
+    .mx-0
+    {
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+    }
+}
+@media (max-width:567px)
+{
+    .App
+    {
+        margin: 0;
+        padding: 0;
+    }
+    .container-sm
+    {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}

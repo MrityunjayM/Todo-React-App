@@ -5,8 +5,8 @@
 body
 {
     position: relative;
-    /* background-color: #ffff90 !important; */
-    background: linear-gradient(-45deg, rgb(228, 52, 52),rgb(233, 97, 97),rgb(230, 74, 35)) ;
+    background-color: #d1d1dd !important;
+    /* background: linear-gradient(-45deg, rgb(228, 52, 52),rgb(233, 97, 97),rgb(230, 74, 35)) ; */
     scroll-behavior: smooth;
 }
 .App
@@ -15,7 +15,33 @@ body
 }
 div.App > nav.navbar
 {
+    /* color: #333; */
+    border-color: rgba(199, 233, 11, 0.712) !important;
     background-color: #283642 !important;
+    background-color: #13426bd8 !important;
+}
+nav.navbar .navbar-brand
+{
+    color: #f1f1f4;
+}
+div#add-form > form input[type='text' i],
+div#add-form > form input[type='text' i]:hover,
+div#add-form > form input[type='text' i]:focus
+{
+    outline: none !important;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background-color: transparent;
+    border-bottom: 1px solid #fff;
+}
+div#add-form > form button[type='submit' i]
+{
+    width: 100px;
+    font-weight: bold;
+    color: whitesmoke;
+    background-color: #1c4fb6de;
+    letter-spacing: 2px !important;
 }
 .right-0
 {
@@ -41,14 +67,15 @@ i.bi-x
 #add-form
 {
     display: none;
+    transition: ease-in-out 5s;
     /* position: absolute;
     z-index: 1;
     width: 90%; */
-    transition: ease-in-out 5s;
 }
 .bg-color
 {
-    background-color: #fafabd;
+    background-color: #90bde26e;
+    /* background-color: #f1367e; */
 }
 button.show-form
 {
@@ -84,7 +111,7 @@ div.Todos > h2
 div.Todo
 {
     position: relative;
-    background-color: #f5f58c !important;
+    background-color: #0f6ce6a2 !important;
     animation: slowShow 1s ease-in-out;
 }
 @keyframes slowShow
@@ -103,7 +130,7 @@ div.Todo
 div.Todo div.card-header
 {
     min-height: 50px !important;
-    height: 10vh;
+    height: fit-content;
     /* background-color: #f06392a8 !important; */
 }
 div.Todo > button.deleteBtn
@@ -115,6 +142,14 @@ div.Todo > button.deleteBtn:focus
     opacity: .6 ;
     box-shadow: inset 2px 2px 2px #111;
 }
+footer.footer 
+{
+    position:sticky;
+    bottom:0;
+    z-Index: 99;
+    background-color: #2b4b8b !important;
+}
+
 /* ................................................................ */
 /* Media Quary */
 @media (min-width:568px)

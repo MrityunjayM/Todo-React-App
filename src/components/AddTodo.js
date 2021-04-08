@@ -28,13 +28,13 @@ function AddTodo({ addTodos }) {
                 <div id="todo-desc" className="form-text mb-1 ms-2 text-capitalize">
                     Add your daily/weekly Todo's here.
                 </div>
-
+                
                 <label htmlFor="todoDesc" className="form-label fs-5">
                     Describe Your To-Do:
                 </label>
                 <input type="text" className="form-control w-75" id="todoDesc" name="Desc" placeholder='Give a description...' autoComplete="off" onChange= {(e)=> setDesc(e.target.value)}/>
                     
-                <button type="submit" className="btn btn-primary mt-2" title='Submit' >
+                <button type="submit" className="btn mt-2" title='Submit' >
                     Add
                 </button>
             </form>

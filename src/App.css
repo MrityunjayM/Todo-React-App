@@ -43,6 +43,13 @@ div#add-form > form button[type='submit' i]
     background-color: #1c4fb6de;
     letter-spacing: 2px !important;
 }
+div#add-form > form button[type='submit' i]
+{
+    outline: none !important;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
 .right-0
 {
     right: 0 !important;
@@ -68,14 +75,10 @@ i.bi-x
 {
     display: none;
     transition: ease-in-out 5s;
-    /* position: absolute;
-    z-index: 1;
-    width: 90%; */
 }
 .bg-color
 {
     background-color: #90bde26e;
-    /* background-color: #f1367e; */
 }
 button.show-form
 {

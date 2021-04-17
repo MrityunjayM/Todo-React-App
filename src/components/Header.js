@@ -10,11 +10,13 @@ function Header(props) {
             </a>
             <button 
                 className="show-form pt-1 pe-1" 
-                title="Add Task" 
+                title="Add ToDo" 
                 onClick={() => {
                     props.formToggle(props.formShow);
                     if(!props.formShow)
-                    {window.scrollTo(0,0);}
+                    {   window.scrollTo(0,0);
+                        window.location.assign('/#addtodo');
+                    }else {window.location.assign('/#')}
                 }}
             >
                 {(!props.formShow) ? <i className='bi bi-plus-circle'></i> : <i className='bi bi-x-circle-fill'></i>

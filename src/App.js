@@ -50,7 +50,6 @@ function App() {
   /*function updateLocal() {
   }*/
   localStorage.setItem("Todos", JSON.stringify(todos));
-  console.log(todos);
 
   return (
     <div className="App mx-auto container-sm">

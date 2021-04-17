@@ -18,7 +18,7 @@ function AddTodo({ addTodos }) {
 
     return (
         <div className="form-group bg-color py-1 px-3 mt-3" id="add-form">
-            <form className='mb-3' onSubmit= {(e) => onSubmit(e)} netlify>
+            <form className='mb-3' onSubmit= {(e) => onSubmit(e)}>
 
                 <label htmlFor="todoInput" className="form-label fs-4">
                     Add Your To-Do:

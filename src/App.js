@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import {Switch, Router,Route} from 'react-router-dom';
 
 // Stylessheets
 import "bootstrap/dist/css/bootstrap.css";
@@ -9,7 +8,6 @@ import './App.css';
 import Header from './components/Header';
 import AddTodo from './components/AddTodo';
 import Todos from './components/Todos/Todos';
-import About from './components/About';
 import Footer from './components/Footer';
 
 function App() {

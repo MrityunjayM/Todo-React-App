@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {Switch, Router,Route} from 'react-router-dom';
 
 // Stylessheets
 import "bootstrap/dist/css/bootstrap.css";
@@ -8,6 +9,7 @@ import './App.css';
 import Header from './components/Header';
 import AddTodo from './components/AddTodo';
 import Todos from './components/Todos/Todos';
+import About from './components/About';
 import Footer from './components/Footer';
 
 function App() {
@@ -52,12 +54,12 @@ function App() {
   localStorage.setItem("Todos", JSON.stringify(todos));
 
   return (
-    <div className="App mx-auto container-sm">
-      <Header formToggle={showForm} formShow = {formShow} />
-      <AddTodo  addTodos={addTodos}/>
-      <Todos todos ={todos} onDelete={deleteTodo}/>
-      <Footer />
-    </div>
+      <div className="App mx-auto container-sm">
+        <Header formToggle={showForm} formShow = {formShow} />
+        <AddTodo  addTodos={addTodos}/>
+        <Todos todos ={todos} onDelete={deleteTodo}/>
+        <Footer />
+      </div>
   );
 }
 

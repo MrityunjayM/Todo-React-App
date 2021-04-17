@@ -6,6 +6,7 @@ function AddTodo({ addTodos }) {
 
     const onSubmit= (e) => {
         e.preventDefault()
+        window.location.assign('/#')
         // console.log(todo, desc)
         if(!Todo) {
             alert('Pls add todo...');

@@ -89,10 +89,12 @@ button.show-form
 }
 button.clearTasks
 {
+    /* letter-spacing: .2em; */
     border: none;
-    color: red;
+    color: rgb(241, 108, 56);
     background-color: transparent;
-    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
     margin-left: 10px;
 }
 button.show-form:focus
@@ -105,6 +107,10 @@ form > button, form > button:hover, form > button:focus, form > button:active
     outline:none !important;
     border: none !important;
 }
+div.todo-content
+{
+    width: calc( 100% - 61px );
+}
 div.Todos > h2
 {
     text-align: center;
@@ -113,9 +119,10 @@ div.Todos > h2
 }
 div.Todo
 {
+    width: 100%;
     position: relative;
     background-color: #0f6ce6a2 !important;
-    animation: slowIn 0.8s ease-in;
+    animation: slowIn 0.8s ease-out;
 }
 @keyframes slowIn
 {
@@ -125,25 +132,87 @@ div.Todo
         opacity: 1;
     }
 }
-div.w-card
-{
-    max-width: 100%;
-    width: 515px;
-}
 div.Todo div.card-header
 {
     min-height: 50px !important;
     height: fit-content;
     /* background-color: #f06392a8 !important; */
 }
+.check
+{
+    display: block;
+    position: relative;
+    padding-left: 5px;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    margin-right: 5px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.check input
+{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+}
+.checkmark
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    background-color: #eee;
+    z-index: 99;
+}
+.check:hover input ~ .checkmark
+{
+    background-color: #ccc;
+}
+.check input:checked ~ .checkmark
+{
+    background-color: rgb(52, 160, 9);
+}
+.checkmark:after
+{
+    content: "";
+    position: absolute;
+    display: none;
+}
+.check input:checked ~ .checkmark:after
+{
+    display: block;
+}
+.check .checkmark:after
+{
+    left: 0.46em;
+    top: .3em;
+    width: 5px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2.5px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
 div.Todo div.card-header h4
 {
-    width: 100%;
+    width: calc( 100% - 25px );
     word-wrap: break-word;   
 }
-div.Todo > button.deleteBtn
+div.Todo button.deleteBtn
 {
-    width: 70px !important;
+    position: sticky;
+    right: 0;
     background-color: #283642 !important;
 }
 div.Todo > button.deleteBtn:focus

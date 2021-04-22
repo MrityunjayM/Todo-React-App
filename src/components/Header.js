@@ -5,7 +5,7 @@ function Header(props) {
      className="navbar mx-0 py-0 border border-3 border-top-0 border-bottom-0" 
      style={{position: 'sticky', top: '0',zIndex:'100'}}>
         <div className="container bg-transparent">
-            <a className="navbar-brand fs-1 fw-bold navbar-light text-capitalize mx-auto" href="/">
+            <a className="navbar-brand fs-1 fw-bold navbar-light text-capitalize mx-auto" href="/" title='Daily/Weekly ToDo Manager'>
                 To - Do List
             </a>
             <button 
@@ -24,8 +24,13 @@ function Header(props) {
             </button>
             <button 
                 className="clearTasks pt-1 pe-1" 
-                title="Clear Tasks" 
-                onClick={() => { localStorage.clear(); window.location.reload(); }}
+                title="Clear All ToDo's" 
+                onClick={() => {
+                    if(window.confirm('Do you really wants to Delete All TODO\'s.')){
+                        localStorage.clear();
+                        window.location.reload();
+                    }}
+                }
             >Clear All</button>
         </div>
      </nav>

@@ -16,7 +16,9 @@ function Header(props) {
                     if(!props.formShow)
                     {   window.scrollTo(0,0);
                         window.location.assign('/#addtodo');
-                    }else {window.location.assign('/#')}
+                    } else {
+                        window.location.assign('/#');
+                    }
                 }}
             >
                 {(!props.formShow) ? <i className='bi bi-plus-circle'></i> : <i className='bi bi-x-circle-fill'></i>

@@ -10,6 +10,7 @@ function AddTodo({ addTodos }) {
         // console.log(todo, desc)
         if(!Todo) {
             alert('Pls add todo...');
+            return 0;
         }
         addTodos({Todo, Desc});
 
@@ -35,7 +36,7 @@ function AddTodo({ addTodos }) {
                 </label>
                 <input type="text" className="form-control w-75" id="todoDesc" name="Desc" placeholder='Give a description...' autoComplete="off" onChange= {(e)=> setDesc(e.target.value)}/>
                     
-                <button type="submit" className="btn mt-2" title='Submit' >
+                <button type="submit" id='submit-btn' className="btn mt-2" title='Submit' >
                     Add
                 </button>
             </form>

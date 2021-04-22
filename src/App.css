@@ -5,7 +5,7 @@
 body
 {
     position: relative;
-    background-color: #d1d1dd !important;
+    background-color: #dffb87 !important;
     /* background: linear-gradient(-45deg, rgb(228, 52, 52),rgb(233, 97, 97),rgb(230, 74, 35)) ; */
     scroll-behavior: smooth;
 }
@@ -57,12 +57,13 @@ div#add-form > form button[type='submit' i]
 i.bi-x
 {
     font-size: 35px;
-    color: red!important;
+    font-weight: bold;
+    color: rgb(248, 59, 59)!important;
 }
 .bi-x-circle-fill
 {
     font-size: 30px;
-    color: rgb(241, 11, 11);
+    color: rgb(251, 105, 105);
 }
 .bi-plus-circle
 {
@@ -89,9 +90,9 @@ button.show-form
 }
 button.clearTasks
 {
-    /* letter-spacing: .2em; */
+    letter-spacing: .2em;
     border: none;
-    color: rgb(241, 108, 56);
+    color: rgb(246, 53, 53);
     background-color: transparent;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;

@@ -31,7 +31,7 @@ function Todo(props) {
                     </p>
                 </div>
             </div>
-            <button className="btn deleteBtn rounded-0" title='Delete this ToDo' onClick={() => props.onDelete(props.todoId)}>
+            <button className="btn deleteBtn rounded-0" title='Delete This ToDo' onClick={() => props.onDelete(props.todoId)}>
                 <i className='bi bi-x'></i>
             </button>
         </div>

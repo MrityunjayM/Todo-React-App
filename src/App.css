@@ -13,6 +13,7 @@ body
 {
     position: relative;
     height: 100vh;
+    min-height: 520px;
 }
 div.App > nav.navbar
 {
@@ -281,4 +282,22 @@ footer.footer
     {
         width: 100% !important;
     }
+}
+/* Designing for scroll-bar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgba(233, 235, 122, 0.801);
+    border-radius: 5px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {    
+    background: rgb(88, 228, 135);
+    border-radius: 5px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(35, 243, 105);
 }/*...END...*/

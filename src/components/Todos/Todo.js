@@ -22,14 +22,15 @@ function Todo(props) {
                         {props.Todo}
                     </h4>
                 </div>
-                <div className="d-flex card-body pt-1 pb-1">
+                {props.toDoState ? <div className="d-flex card-body pt-1 pb-1">
                     <h6 className="card-title">
                         Description:
                     </h6>
                     <p className="card-text ms-2">
                         {props.Desc}
                     </p>
-                </div>
+                </div> : ""}
+                
             </div>
             <button className="btn deleteBtn rounded-0" title='Delete This ToDo' onClick={() => props.onDelete(props.todoId)}>
                 <i className='bi bi-x'></i>

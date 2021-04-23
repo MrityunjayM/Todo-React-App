@@ -3,10 +3,10 @@ import Todo from './Todo'
 function Todos({ todos, onDelete, changeToDoState }) {
     return (
         <div 
-        className="Todos container rounded-2 px-0 mt-4 mb-3 bg-color" 
+        className="Todos container rounded-2 px-1 mt-4 mb-3 bg-color" 
         style={{
             backgroundColor:'#00000009',
-            minHeight:'200px',
+            minHeight:'350px',
             overflow:'scroll',
             overflowX:'hidden',
             overflowY:'hidden'

@@ -27,12 +27,12 @@ function AddTodo({ addTodos }) {
                 <label htmlFor="todoInput" className="form-label fs-4">
                     Add Your To-Do:
                 </label>
-                <input type="text" className="form-control w-75" id="todoInput" name="Todo" aria-describedby="todo-desc" placeholder='Add Your Todo...' required autoFocus="on" autoComplete="off" onChange= {(e)=> setTodo(e.target.value)}/>
+                <input type="text" className="form-control w-75" id="todoInput" name="Todo" aria-describedby="todo-desc" placeholder='Todo title' required autoFocus="on" autoComplete="off" onChange= {(e)=> setTodo(e.target.value)}/>
 
-                <div id="todo-desc" className="form-text mb-1 ms-2 text-capitalize">
+                {/* <div id="todo-desc" className="form-text mb-1 ms-2 text-capitalize">
                     Add your daily/weekly Todo's here.
-                </div>
-                
+                </div> */}
+                <br/>
                 <label htmlFor="todoDesc" className="form-label fs-5">
                     Describe Your To-Do:
                 </label>

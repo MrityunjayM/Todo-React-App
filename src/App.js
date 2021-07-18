@@ -40,11 +40,6 @@ function App() {
     setTodos(
       todos.map((todo) => todo.Id === id ? {...todo,toDoState: !todo.toDoState} : todo)
     )
-    // todos.map((todo)=> {
-    //   document.querySelector(`.${id}`).checked= todo.toDoState;
-    //   console.log(document.querySelector(`.${id}`).checked);
-    //   return
-    // })
   }
 
   document.addEventListener("DOMContentLoaded", () => {

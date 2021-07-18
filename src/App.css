@@ -2,27 +2,35 @@
     margin: 0;
     padding: 0;
 }
+:root
+{
+    --clr-primary : #B9F3D7;
+    --bg-clr-nav: #7cf4ac;
+    --bg-clr-form: #90bde26e;
+    --bg-clr-todos: #FBADAD;
+    --bg-clr-todo: #EA2A2A;
+    --bg-clr-footer: #000;
+}
 body
 {
     position: relative;
-    /* background-color: #c3c8bf !important; */
     scroll-behavior: smooth;
-    background: linear-gradient(-30deg, rgb(206, 181, 98),rgb(125, 238, 163)) ;
+    background: var(--clr-primary);
 }
 .App
 {
     position: relative;
-    height: 100vh;
-    min-height: 520px;
+    /* height: 100vh; */
+    min-height: 100vh;
 }
 div.App > nav.navbar
 {
     border-color: rgba(199, 233, 11, 0.712) !important;
-    background-color: #13426bd8 !important;
+    background-color: var(--bg-clr-nav) !important;
 }
 nav.navbar .navbar-brand
 {
-    color: #f1f1f4;
+    color: #0B36D2;
 }
 div#add-form > form input[type='text' i],
 div#add-form > form input[type='text' i]:hover,
@@ -45,12 +53,8 @@ div#add-form > form button[type='submit' i]
     outline: none !important;
     border: none;
     border-radius: 0;
-    box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 16%), 
+    box-shadow: 0px 2px 5px 2px rgb(0 0 0 / 16%), 
         0px 2px 10px 0px rgb(0 0 0 / 12%);
-}
-.right-0
-{
-    right: 0 !important;
 }
 i.bi-x
 {
@@ -68,18 +72,15 @@ i.bi-x
     width: 30px!important;
     height: 30px!important;
     font-size: 30px;
-    color: whitesmoke;
+    color: #fff;
 }
 #add-form
 {
     display: none;
+    background-color: var(--bg-clr-form);
     box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 16%), 
         0px 2px 10px 0px rgb(0 0 0 / 12%);
     transition: ease-in-out 5s;
-}
-.bg-color
-{
-    background-color: #90bde26e;
 }
 button.show-form
 {
@@ -108,6 +109,14 @@ form > button, form > button:hover, form > button:focus, form > button:active
     outline:none !important;
     border: none !important;
 }
+
+div.Todos.container
+{    
+    background-color: var(--bg-clr-todos);
+    max-height: 500px;
+    overflow: scroll;
+    overflow-x: hidden    
+}
 div.Todos, div.Todo
 {
     box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 16%), 
@@ -119,16 +128,13 @@ div.Todos > h2
     width: 70%;
     margin: 20px auto;
 }
-div.todo-content
-{
-    width: calc( 100% - 61px );
-}
 div.Todo
 {
     width: 100%;
+    min-height: 55px !important;
     position: relative;
-    background-color: #0f6ce6a2 !important;
-    animation: slowIn 0.8s ease-out;
+    background-color: var(--bg-clr-todo) !important;
+    animation: slowIn 0.8s ease-in-out;
 }
 @keyframes slowIn
 {
@@ -138,9 +144,18 @@ div.Todo
         opacity: 1;
     }
 }
+
+div.todo-content
+{
+    width: calc( 100% - 55px );
+    min-height: 55px !important;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
 div.Todo div.card-header
 {
-    min-height: 50px !important;
+    min-height: 55px !important;
     height: fit-content;
     /* background-color: #f06392a8 !important; */
 }
@@ -203,11 +218,11 @@ div.Todo div.card-header h4
 }
 .check .checkmark:after
 {
-    left: 0.46em;
+    left: 0.446em;
     top: .3em;
     width: 5px;
     height: 8px;
-    border: solid white;
+    border: 2px solid white;
     border-width: 0 2.5px 2px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
@@ -227,7 +242,9 @@ div.Todo > button.deleteBtn
 {
     position: sticky;
     right: 0;
-    max-width: 61px;
+    height: auto;
+    max-height: 55px !important;
+    max-width: 55px;
     background-color: #283642 !important;
     transition: 1ms ease-in-out;
 }
@@ -242,10 +259,11 @@ div.Todo > button.deleteBtn:focus
 }
 footer.footer 
 {
-    position:absolute;
-    bottom:0;
+    position: sticky;
+    width: 100%;
+    bottom: 0;
     z-Index: 99;
-    background-color: #223e77 !important;
+    background-color: var(--bg-clr-footer) !important;
 }
 
 /* ................................................................ */
@@ -262,10 +280,6 @@ footer.footer
         margin-right: 0 !important;
         margin-left: 0 !important;
     }
-    footer.footer 
-    {
-        width: 97% !important;
-    }
 }
 @media (max-width:567px)
 {
@@ -277,6 +291,10 @@ footer.footer
     {
         margin: 0 !important;
         padding: 0 !important;
+    }
+    div.Todos.container
+    {
+        max-height: calc(100vh - 150px);
     }
     footer.footer 
     {

@@ -10,12 +10,14 @@ function AddTodo({ addTodos }) {
         // console.log(todo, desc)
         if(!Todo) {
             alert('Pls add todo...');
-            return 0;
+            return
         }
         addTodos({Todo, Desc});
 
         document.getElementById('todoInput').value = '';
         document.getElementById('todoDesc').value = '';
+        setTodo('');
+        setDesc('');
     }
 
     return (

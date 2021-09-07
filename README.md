@@ -1,3 +1,3 @@
 # Todo Manegement App
 
-A react project created to learn react as a beginner.
+> A react project created from scratch to learn react as a beginner.

@@ -1,75 +1,67 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from "react";
+import "jquery";
 
 // Stylessheets
 import "bootstrap/dist/css/bootstrap.css";
-import './App.css';
+import "./App.css";
 
 // Components...
-import Header from './components/Header';
-import AddTodo from './components/AddTodo';
-import Todos from './components/Todos/Todos';
-import Footer from './components/Footer';
-
-// fetch ToDo's from localStorage...
-const getFromLocal = () => {
-  if (localStorage.getItem("Todos") !== null){
-    return JSON.parse(localStorage.getItem("Todos"))
-  }else{
-    return []
-  }
-}
+import { Header, AddTodo, Todos, Footer } from "./components";
 
 function App() {
-  const [todos, setTodos] = useState(getFromLocal());
+  const [todos, setTodos] = useState([]);
   const [formShow, setFormShow] = useState(false);
-  
-  // Form Toggle...
-  const showForm = (flag) => {
-    const addForm = document.getElementById('add-form');
 
-    if(flag){
-      addForm.style.display = 'none';
-    } else {
-      addForm.style.display = 'block'
-    };
-    setFormShow(!flag);
+  // get ToDos from localStorage...
+  useEffect(() => {
+    const localData = JSON.parse(localStorage.getItem("Todos"));
+
+    if (localData) return setTodos(localData);
+
+    return setTodos([]);
+  }, []);
+
+  // Update LocalStorage after modifications...
+  useEffect(UpdateLocalStorage, [todos]);
+
+  // Set LocalStorage...
+  function UpdateLocalStorage() {
+    localStorage.setItem("Todos", JSON.stringify(todos));
   }
-
-  // update todo with completion state...
-  const changeToDoState = (id) => {
-    setTodos(
-      todos.map((todo) => todo.Id === id ? {...todo,toDoState: !todo.toDoState} : todo)
-    )
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    setTimeout(() => {
-      todos.map((todo) => {
-        document.querySelector(`#${todo.Id}`).style.textDecoration === 'line-through' ? document.querySelector(`.${todo.Id}`).checked= !todo.toDoState : document.querySelector(`.${todo.Id}`).checked= !todo.toDoState;
-        return 0
-      },1000)
-    })
-  });
 
   // Add Todo...
   const addTodos = (todo) => {
-    const Id = 'TD_' + Math.floor(Math.random() * 100000) + 1 ;
-    const newTodo = {Id, ...todo,toDoState: true};
+    const Id = "TD_" + Math.floor(Math.random() * 100000) + 1;
+    const newTodo = { Id, ...todo, toDoState: true };
     setTodos([...todos, newTodo]);
 
-    showForm(formShow);
-  }
+    setFormShow(!formShow);
+  };
+
+  // Update todo with completion state...
+  const changeToDoState = (id) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.Id === id ? { ...todo, toDoState: !todo.toDoState } : todo
+      )
+    );
+  };
+
+  // Form Toggle
+  const formToggle = (showForm) => setFormShow(showForm);
 
   // Delete Todo..
-  const deleteTodo = (id) => setTodos( todos.filter((todo) => todo.Id !== id ))
-  // set localStorage...
-  localStorage.setItem("Todos", JSON.stringify(todos));
+  const deleteTodo = (id) => setTodos(todos.filter((todo) => todo.Id !== id));
 
   return (
     <div className="App mx-auto container-sm">
-      <Header formToggle={showForm} formShow = {formShow} />
-      <AddTodo  addTodos={addTodos}/>
-      <Todos todos ={todos} onDelete={deleteTodo} changeToDoState={changeToDoState}/>
+      <Header formToggle={formToggle} formShow={formShow} />
+      {formShow && <AddTodo addTodos={addTodos} formToggle={formToggle} />}
+      <Todos
+        todos={todos}
+        onDelete={deleteTodo}
+        changeToDoState={changeToDoState}
+      />
       <Footer />
     </div>
   );

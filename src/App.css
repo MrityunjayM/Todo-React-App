@@ -1,12 +1,13 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 :root
 {
     --clr-primary : #B9F3D7;
     --bg-clr-nav: #7cf4ac;
-    --bg-clr-form: #90bde26e;
+    --bg-clr-form: rgb(180, 214, 224);
     --bg-clr-todos: #FBADAD;
     --bg-clr-todo: #EA2A2A;
     --bg-clr-footer: #000;
@@ -20,7 +21,6 @@ body
 .App
 {
     position: relative;
-    /* height: 100vh; */
     min-height: 100vh;
 }
 div.App > nav.navbar
@@ -32,9 +32,46 @@ nav.navbar .navbar-brand
 {
     color: #0B36D2;
 }
+
+.model
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1111114d;
+}
+.close-model
+{
+    position: absolute;
+    top: 0;
+    right: 20px;
+    border: none;
+    outline: none;
+    width: 30px;
+    font-size: 28px;
+    text-align: center;
+    background: transparent;
+}
+#add-form
+{
+    /* display: none; */
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 5px;
+    background-color: var(--bg-clr-form);
+    box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 16%), 
+        0px 2px 10px 0px rgb(0 0 0 / 12%);
+}
+
 div#add-form > form input[type='text' i],
-div#add-form > form input[type='text' i]:hover,
-div#add-form > form input[type='text' i]:focus
+div#add-form > form input[type='text' i]:is(:hover, :focus)
 {
     outline: none !important;
     border: none;
@@ -45,14 +82,14 @@ div#add-form > form input[type='text' i]:focus
 }
 div#add-form > form button[type='submit' i]
 {
-    width: 100px;
+    width: 85px;
     font-weight: bold;
     color: whitesmoke;
-    background-color: #1c4fb6de;
+    background-color: #1656d4;
     letter-spacing: 2px !important;
     outline: none !important;
     border: none;
-    border-radius: 0;
+    border-radius: 8px;
     box-shadow: 0px 2px 5px 2px rgb(0 0 0 / 16%), 
         0px 2px 10px 0px rgb(0 0 0 / 12%);
 }
@@ -73,14 +110,6 @@ i.bi-x
     height: 30px!important;
     font-size: 30px;
     color: #fff;
-}
-#add-form
-{
-    display: none;
-    background-color: var(--bg-clr-form);
-    box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 16%), 
-        0px 2px 10px 0px rgb(0 0 0 / 12%);
-    transition: ease-in-out 5s;
 }
 button.show-form
 {
@@ -104,7 +133,9 @@ button.show-form:focus
     outline: none !important;
     border: none !important;
 }
-form > button, form > button:hover, form > button:focus, form > button:active
+form > button, 
+form > button:hover,
+form > button:is(:focus, :active)
 {
     outline:none !important;
     border: none !important;
@@ -114,7 +145,7 @@ div.Todos.container
 {    
     background-color: var(--bg-clr-todos);
     max-height: 500px;
-    overflow: scroll;
+    overflow: auto;
     overflow-x: hidden    
 }
 div.Todos, div.Todo
@@ -132,15 +163,15 @@ div.Todo
 {
     width: 100%;
     min-height: 55px !important;
+    opacity: 0;
     position: relative;
     background-color: var(--bg-clr-todo) !important;
-    animation: slowIn 0.8s ease-in-out;
+    animation: fadeIn 0.8s ease-in-out both;
 }
-@keyframes slowIn
+
+@keyframes fadeIn
 {
-    0% {
-        opacity: 0;
-    } 100%{
+    to {
         opacity: 1;
     }
 }
@@ -157,12 +188,13 @@ div.Todo div.card-header
 {
     min-height: 55px !important;
     height: fit-content;
-    /* background-color: #f06392a8 !important; */
 }
+
 div.Todo div.card-header h4
 {
     transition: 5ms ease-in;
 }
+
 .check
 {
     display: block;
@@ -281,6 +313,7 @@ footer.footer
         margin-left: 0 !important;
     }
 }
+
 @media (max-width:567px)
 {
     .App
@@ -292,6 +325,10 @@ footer.footer
         margin: 0 !important;
         padding: 0 !important;
     }
+    #add-form
+    {
+        width: 90% !important;
+    }
     div.Todos.container
     {
         max-height: calc(100vh - 150px);
@@ -301,6 +338,7 @@ footer.footer
         width: 100% !important;
     }
 }
+
 /* Designing for scroll-bar */
 ::-webkit-scrollbar {
     width: 10px;

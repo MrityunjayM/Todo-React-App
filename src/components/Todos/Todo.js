@@ -23,8 +23,8 @@ function Todo({ todoId, Todo, toDoState, Desc, onDelete, changeToDoState }) {
           </h4>
         </div>
         {toDoState && Desc ? (
-          <div className="d-flex card-body ps-4 py-1">
-            <p className="card-text ms-2">{Desc}</p>
+          <div className="d-flex card-body py-1">
+            <p className="card-text">{Desc}</p>
           </div>
         ) : (
           ""

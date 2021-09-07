@@ -266,10 +266,7 @@ div.Todo div.card-header h4
     width: calc( 100% - 25px );
     word-wrap: break-word;   
 }
-div.Todo div.card-body > p 
-{
-    width: calc(100% - 85px);
-}
+
 div.Todo > button.deleteBtn
 {
     position: sticky;

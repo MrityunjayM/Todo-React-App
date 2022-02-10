@@ -1,10 +1,21 @@
 import React from 'react'
 
-function Todo({ todoId, Title, toDoState, Desc, onDelete, changeToDoState }) {
+function Todo({
+  todoId,
+  Title,
+  toDoState,
+  Desc,
+  onDelete,
+  changeToDoState,
+  editClick,
+}) {
   return (
     <div className="card my-3 mx-0 rounded-0 border-0 flex-row justify-content-between Todo">
       <div className="todo-content">
-        <div className="card-header border-0 py-0 pe-2 d-flex align-items-center">
+        <div
+          className="card-header border-0 py-0 pe-2 d-flex align-items-center"
+          onDoubleClick={() => editClick(todoId)}
+        >
           <div className="check">
             <input
               className={`${todoId}`}
@@ -38,7 +49,7 @@ function Todo({ todoId, Title, toDoState, Desc, onDelete, changeToDoState }) {
         <i className="bi bi-x"></i>
       </button>
     </div>
-  );
+  )
 }
 
 export default Todo;

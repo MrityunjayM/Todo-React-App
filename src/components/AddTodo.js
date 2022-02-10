@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 
-export function AddTodo({ addTodos, formToggle }) {
-  const [title, setTitle] = useState("")
-  const [desc, setDesc] = useState("")
+export function AddTodo(props) {
+  const [title, setTitle] = useState(props.title || "")
+  const [desc, setDesc] = useState(props.desc || "")
 
   const onSubmit = e => {
     e.preventDefault()
@@ -11,7 +11,7 @@ export function AddTodo({ addTodos, formToggle }) {
       return
     }
 
-    addTodos({ title, desc })
+    props.addTodos({ title, desc })
 
     setTitle("")
     setDesc("")
@@ -23,7 +23,7 @@ export function AddTodo({ addTodos, formToggle }) {
         <button
           className="close-model"
           onClick={() => {
-            formToggle(false)
+            props.formToggle(false)
           }}
           title="Close"
         >

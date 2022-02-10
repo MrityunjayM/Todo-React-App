@@ -1,7 +1,7 @@
 import React from "react"
 import Todo from "./Todo"
 
-export function Todos({ todos, onDelete, changeToDoState }) {
+export function Todos({ todos, onDelete, changeToDoState, onEditClick }) {
   return (
     <div className="Todos container rounded-2 px-1 mt-4 mb-3 bg-color">
       {todos.length === 0 ? (
@@ -16,6 +16,7 @@ export function Todos({ todos, onDelete, changeToDoState }) {
             toDoState={todo.toDoState}
             onDelete={onDelete}
             changeToDoState={changeToDoState}
+            editClick={onEditClick}
           />
         ))
       )}

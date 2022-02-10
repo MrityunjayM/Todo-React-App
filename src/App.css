@@ -15,7 +15,7 @@
 body
 {
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
     scroll-behavior: smooth;
     background: var(--clr-primary);
 }
@@ -23,11 +23,16 @@ body
 {
     position: relative;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
-div.App > nav.navbar
+nav.navbar
 {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--clr-primary) !important;
     border-color: rgba(199, 233, 11, 0.712) !important;
-    background-color: var(--bg-clr-nav) !important;
 }
 nav.navbar .navbar-brand
 {
@@ -145,10 +150,9 @@ form > button:is(:focus, :active)
 
 div.Todos.container
 {    
-    background-color: var(--bg-clr-todos);
-    max-height: 500px;
     overflow: auto;
-    overflow-x: hidden    
+    overflow-x: hidden;
+    background-color: var(--bg-clr-todos);
 }
 div.Todos, div.Todo
 {
@@ -290,10 +294,8 @@ div.Todo > button.deleteBtn:focus
 }
 footer.footer 
 {
-    position: sticky;
     width: 100%;
-    bottom: 0;
-    z-Index: 99;
+    align-self: flex-end;
     background-color: var(--bg-clr-footer) !important;
 }
 
@@ -339,20 +341,20 @@ footer.footer
 }
 
 /* Designing for scroll-bar */
-div.Todos::-webkit-scrollbar {
+* ::-webkit-scrollbar {
     width: 10px;
 }
 /* Track */
-div.Todos::-webkit-scrollbar-track {
+* ::-webkit-scrollbar-track {
     background: rgba(233, 235, 122, 0.801);
     border-radius: 5px;
 }
 /* Handle */
-div.Todos::-webkit-scrollbar-thumb {    
+* ::-webkit-scrollbar-thumb {    
     background: rgb(88, 228, 135);
     border-radius: 5px;
 }
 /* Handle on hover */
-div.Todos::-webkit-scrollbar-thumb:hover {
+* ::-webkit-scrollbar-thumb:hover {
     background: rgb(35, 243, 105);
 }/*...END...*/

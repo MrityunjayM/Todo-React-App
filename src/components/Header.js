@@ -2,11 +2,8 @@ import React from "react"
 
 export function Header({ formShow, formToggle }) {
   return (
-    <nav
-      className="navbar mx-0 py-0 border border-3 border-top-0 border-bottom-0"
-      style={{ position: "sticky", top: "0", zIndex: "100" }}
-    >
-      <div className="container bg-transparent">
+    <nav className="navbar mx-0 py-0 border border-3 border-top-0 border-bottom-0">
+      <div className="container ">
         <a
           className="navbar-brand fs-1 fw-bold navbar-light text-capitalize mx-auto"
           href="/"

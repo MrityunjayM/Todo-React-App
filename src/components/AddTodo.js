@@ -1,23 +1,21 @@
-import { useState } from "react";
+import React, { useState } from "react"
 
-function AddTodo({ addTodos, formToggle }) {
-  const [Todo, setTodo] = useState("");
-  const [Desc, setDesc] = useState("");
+export function AddTodo({ addTodos, formToggle }) {
+  const [title, setTitle] = useState("")
+  const [desc, setDesc] = useState("")
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    window.location.assign("/#");
-    // console.log(todo, desc)
-    if (!Todo) {
-      alert("Please fill the inputs...");
-      return;
+  const onSubmit = e => {
+    e.preventDefault()
+    if (!title) {
+      alert("Please fill the inputs...")
+      return
     }
 
-    addTodos({ Todo, Desc });
+    addTodos({ title, desc })
 
-    setTodo("");
-    setDesc("");
-  };
+    setTitle("")
+    setDesc("")
+  }
 
   return (
     <div className="model">
@@ -25,15 +23,14 @@ function AddTodo({ addTodos, formToggle }) {
         <button
           className="close-model"
           onClick={() => {
-            formToggle(false);
-            window.location.assign("/#");
+            formToggle(false)
           }}
           title="Close"
         >
-          &times;
+          &otimes;
         </button>
 
-        <form className="mb-3" onSubmit={(e) => onSubmit(e)}>
+        <form className="mb-3" onSubmit={e => onSubmit(e)}>
           <label htmlFor="todoInput" className="form-label fs-4">
             Add Your To-Do :
           </label>
@@ -41,13 +38,13 @@ function AddTodo({ addTodos, formToggle }) {
             type="text"
             className="form-control w-75"
             id="todoInput"
-            name="Todo"
+            name="title"
             aria-describedby="todo-desc"
             placeholder="Todo title"
             required
             autoFocus="on"
             autoComplete="off"
-            onChange={(e) => setTodo(e.target.value)}
+            onChange={e => setTitle(e.target.value)}
           />
 
           <br />
@@ -59,23 +56,23 @@ function AddTodo({ addTodos, formToggle }) {
             type="text"
             className="form-control w-75"
             id="todoDesc"
-            name="Desc"
+            name="desc"
             placeholder="Give a description..."
-            onChange={(e) => setDesc(e.target.value)}
+            onChange={e => setDesc(e.target.value)}
           />
 
           <button
             type="submit"
             id="submit-btn"
             className="btn mt-2"
-            title="Submit"
+            title="Add"
           >
             Add
           </button>
         </form>
       </div>
     </div>
-  );
+  )
 }
-  
-export default AddTodo;
+
+// export default AddTodo;

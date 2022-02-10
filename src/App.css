@@ -15,6 +15,7 @@
 body
 {
     position: relative;
+    overflow: hidden;
     scroll-behavior: smooth;
     background: var(--clr-primary);
 }
@@ -56,6 +57,7 @@ nav.navbar .navbar-brand
     width: 30px;
     font-size: 28px;
     text-align: center;
+    color: red;
     background: transparent;
 }
 #add-form
@@ -195,7 +197,7 @@ div.Todo div.card-header h4
     transition: 5ms ease-in;
 }
 
-.check
+div.todo-content .check
 {
     display: block;
     position: relative;
@@ -210,7 +212,7 @@ div.Todo div.card-header h4
     -ms-user-select: none;
     user-select: none;
 }
-.check input
+div.todo-content .check input
 {
     position: absolute;
     opacity: 0;
@@ -219,7 +221,7 @@ div.Todo div.card-header h4
     width: 100%;
     z-index: 100;
 }
-.checkmark
+div.todo-content .checkmark
 {
     position: absolute;
     top: 0;
@@ -230,25 +232,25 @@ div.Todo div.card-header h4
     background-color: #dca;
     z-index: 99;
 }
-.check:hover input ~ .checkmark
+div.todo-content .check:hover input ~ .checkmark
 {
     background-color: #ccc;
 }
-.check input:checked ~ .checkmark
+div.todo-content .check input:checked ~ .checkmark
 {
     background-color: rgb(52, 160, 9);
 }
-.checkmark:after
+div.todo-content .checkmark:after
 {
     content: "";
     position: absolute;
     display: none;
 }
-.check input:checked ~ .checkmark:after
+div.todo-content .check input:checked ~ .checkmark:after
 {
     display: block;
 }
-.check .checkmark:after
+div.todo-content .check .checkmark:after
 {
     left: 0.446em;
     top: .3em;
@@ -337,20 +339,20 @@ footer.footer
 }
 
 /* Designing for scroll-bar */
-::-webkit-scrollbar {
+div.Todos::-webkit-scrollbar {
     width: 10px;
 }
 /* Track */
-::-webkit-scrollbar-track {
+div.Todos::-webkit-scrollbar-track {
     background: rgba(233, 235, 122, 0.801);
     border-radius: 5px;
 }
 /* Handle */
-::-webkit-scrollbar-thumb {    
+div.Todos::-webkit-scrollbar-thumb {    
     background: rgb(88, 228, 135);
     border-radius: 5px;
 }
 /* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
+div.Todos::-webkit-scrollbar-thumb:hover {
     background: rgb(35, 243, 105);
 }/*...END...*/
